@@ -138,8 +138,21 @@ class Operate:
             ## Move = 1 -> forward, Move = 0 -> Stop, Move = -1 -> Reverse
             ## Turn = 1 -> Left, Turn = 0 -> No turn, Turn = -1 -> Right
             ############### add your codes below ###############
+            keys = pygame.key.get_pressed()
+            # arc left forward turn
+            if keys[pygame.K_UP] and keys[pygame.K_left]:
+                self.command['motion'] = [1,1]
+            # arc right forward turn
+            elif keys[pygame.K_UP] and keys[pygame.K_right]:
+                self.command['motion'] = [1,-1]
+            # arc left backward turn
+            elif keys[pygame.K_DWON] and keys[pygame.K_left]:
+                self.command['motion'] = [-1,1]
+            # arc right backward turn
+            elif keys[pygame.K_DOWN] and keys[pygame.K_right]:
+                self.command['motion'] = [-1,-1]
             # drive forward
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
                 self.command['motion'] = [1, 0]     
             # drive backward
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
