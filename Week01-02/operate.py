@@ -140,16 +140,16 @@ class Operate:
             ############### add your codes below ###############
             keys = pygame.key.get_pressed()
             # arc left forward turn
-            if keys[pygame.K_UP] and keys[pygame.K_left]:
+            if event.type == pygame.KEYDOWN and self.command['motion'][0] == 1 and event.key == pygame.K_LEFT:
                 self.command['motion'] = [1,1]
             # arc right forward turn
-            elif keys[pygame.K_UP] and keys[pygame.K_right]:
+            elif event.type == pygame.KEYDOWN and self.command['motion'][0] == 1 and event.key == pygame.K_RIGHT:
                 self.command['motion'] = [1,-1]
             # arc left backward turn
-            elif keys[pygame.K_DWON] and keys[pygame.K_left]:
+            elif event.type == pygame.KEYDOWN and self.command['motion'][0] == -1 and event.key == pygame.K_LEFT:
                 self.command['motion'] = [-1,1]
             # arc right backward turn
-            elif keys[pygame.K_DOWN] and keys[pygame.K_right]:
+            elif event.type == pygame.KEYDOWN and self.command['motion'][0] == -1 and event.key == pygame.K_RIGHT:
                 self.command['motion'] = [-1,-1]
             # drive forward
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
