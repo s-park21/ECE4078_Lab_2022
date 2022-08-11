@@ -147,10 +147,10 @@ class Operate:
                 self.command['motion'] = [1,-1]
             # arc left backward turn
             elif event.type == pygame.KEYDOWN and self.command['motion'][0] == -1 and event.key == pygame.K_LEFT:
-                self.command['motion'] = [-1,1]
+                self.command['motion'] = [-1,-1]
             # arc right backward turn
             elif event.type == pygame.KEYDOWN and self.command['motion'][0] == -1 and event.key == pygame.K_RIGHT:
-                self.command['motion'] = [-1,-1]
+                self.command['motion'] = [-1,1]
             # drive forward
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
                 self.command['motion'] = [1, 0]     
